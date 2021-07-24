@@ -8,10 +8,10 @@ variable "AWS_REGION" {
    default = "us-west-1"
 }
 
+#deploying Windows
 variable "AMIS" {
    type = map(string)
    default = {
-      us-west-1 = "ami-0d382e80be7ffdae5"
-      us-east-1 = "ami-0f6c23a2bfb63fbf1"
+      us-west-1 = "ami-0f6c23a2bfb63fbf1"
    }
 }
