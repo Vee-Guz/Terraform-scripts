@@ -10,4 +10,4 @@ gpg --decrypt --no-symkey-cache --output veroguz.tfvars veroguz.tfvars.asc
 terraform destroy
 
 #remove encrypte and decrypted keys
-rm veroguz.tfvar.asc veroguz.asc
+rm veroguz.tfvars.asc veroguz.tfvars
