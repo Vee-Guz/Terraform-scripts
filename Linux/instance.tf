@@ -28,13 +28,13 @@ resource "aws_internet_gateway" "vero-gateway" {
 resource "aws_security_group" "allow_ssh_veronica" {
    name  = "allow_ssh_veronica"
    description = "Allow port 22 as inbound for home IP"
-   vpc_id   = aws_vcp.vpc-vero.id
+   vpc_id   = aws_vpc.vpc-vero.id
    ingress {
       description = "SSH"
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = ["76.216.1.39/22"]
+      cidr_blocks = ["76.216.1.39/32"]
    }
 
    egress {
@@ -49,3 +49,15 @@ resource "aws_security_group" "allow_ssh_veronica" {
    }
 }
 
+# add a script to instance
+provisioner "file" {
+   source   = "script.sh"
+   destination = "/tmp/script.sh"
+}
+
+provisioner "remote-exec" {
+   inline = [
+      "chmod +x /tmp/script.sh",
+      "sudo /temp/script.sh"
+   ]
+}
