@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #copy keys into repository
-cp ~/DevopsSecret/veroguz.tfvars.asc .
+cp ~/DevopsSecret/terraform.tfvars.asc .
 
 #decrypt keys
-gpg --decrypt --no-symkey-cache --output veroguz.tfvars veroguz.tfvars.asc
+gpg --decrypt --no-symkey-cache --output terraform.tfvars terraform.tfvars.asc
 
 #destroy terraform/terminate instances
 terraform destroy
@@ -13,4 +13,4 @@ terraform destroy
 sleep 60s
 
 #remove encrypte and decrypted keys
-rm veroguz.tfvars.asc veroguz.tfvars
+rm terraform.tfvars.asc terraform.tfvars
