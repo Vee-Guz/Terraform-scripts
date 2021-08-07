@@ -34,7 +34,7 @@ resource "aws_security_group" "allow_ssh_veronica" {
       from_port   = 22
       to_port     = 22
       protocol    = "tcp"
-      cidr_blocks = ["76.216.1.39/22"]
+      cidr_blocks = ["76.216.1.39/32"]
    }
 
    egress {
